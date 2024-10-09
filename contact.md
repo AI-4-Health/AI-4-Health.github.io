@@ -13,6 +13,7 @@ If you need to get in touch with us, please use the following contact informatio
 
 ---
 
+<!-- 
 ## General enquiries
 
 For all other enquiries, please send an email to our [generic address](a.liew@griffith.edu.au) 
@@ -33,3 +34,4 @@ or fill out the form below :
   <input type="hidden" name="_next" value="./contact?message=Your message was sent successfully, thanks!" />
   <button type="submit" class="btn btn-lg btn-primary">Submit</button>
 </form>
+-->
