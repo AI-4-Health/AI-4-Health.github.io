@@ -1,0 +1,19 @@
+/* Add any custom CSS to change the style of the website in this file */
+
+/* Example: change the navigation bar background to orange (this code is documented out) */
+/* .navbar-custom {
+  background: orange;
+}
+*/
+body {
+text-transform: none;
+}
+
+page-heading {
+    display: none;
+}
+
+.container-fluid{
+  padding-right: 80px;
+  padding-left: 80px;
+}

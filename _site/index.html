@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>AI4Health</title>
+
+  <meta name="author" content="AI4Health" />
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="AI4Health - " href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    
+      
+  
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+      <link rel="stylesheet" href="/css/recon.css" />
+    
+    
+  
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+    
+  
+  
+
+  
+
+  <!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="AI4Health" />
+  <meta property="og:type" content="website" />
+  
+  <meta property="og:url" content="http://localhost:4000/" />
+  
+  
+  <meta property="og:image" content="" />
+  
+  
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+  <meta name="twitter:title" content="AI4Health" />
+  <meta name="twitter:description" content="## AI4Health Lab The AI4Health Lab, located in the School of Information, Communication and Technology at Griffith University, stands at the forefront of AI applications in the biomedical and health fields. Committed to excellence and innovation, we strive to address major challenges in contemporary medicine and public health through the..." />
+  
+  
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:4000">AI4Health</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/">Home</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/research">Research</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/funding">Project</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/peoplenew">People</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/publication">Publication</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/events">Events</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/join">Join Us</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/contact">Contact</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+      <h2 id="ai4health-lab">AI4Health Lab</h2>
+
+<p>The AI4Health Lab, located in the School of Information, Communication and Technology at Griffith University, stands at the forefront of AI applications in the biomedical and health fields. Committed to excellence and innovation, we strive to address major challenges in contemporary medicine and public health through the deep integration of AI and health sciences. Our research spans computational pathology, computational neuroscience, computational microscopy imaging, deep learning paradigms, bio-health multimodal data integration, and the development of trustworthy health AI. We are dedicated to tackling core challenges in precision and intelligent medicine, enhancing the accuracy of disease diagnosis, optimizing personalized treatment plans, and advancing the fairness and explainability of medical decisions. With our interdisciplinary research team and exceptional innovation capabilities, the AI4Health Lab aims to become a global leader in AI and health research. We believe that artificial intelligence will reshape the future of healthcare, and we are committed to leading this transformation, ushering in a new era of technological advancement and human well-being.</p>
+
+<div id="p5-sketch"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
+<script>
+let sections = [];
+let cx, cy, r1x, r1y, r2x, r2y, canvas;
+let hoveredIndex = -1;
+let w_width,w_height;
+function setup() {
+  w_width = windowWidth>1000 ? 1000 : windowWidth*0.8;
+  w_height = windowHeight>600 ? 600 : windowHeight*0.8;
+  canvas = createCanvas(w_width, w_height); // Adjust the canvas size
+  canvas.parent('p5-sketch');
+//centerCanvas();
+  angleMode(DEGREES); // 使用度数为单位的角度
+  textAlign(CENTER, CENTER);
+  // noLoop(); // 只在需要时重绘
+  updateCenterAndRadii(); // 更新中心点和半径
+  
+  cx = width / 2;
+  cy = height / 2;
+  r1x = 130; // 内椭圆的x轴半径
+  r1y = 70;  // 内椭圆的y轴半径
+  r2x = 380; // 外椭圆的x轴半径
+  r2y = 220; // 外椭圆的y轴半径
+
+  sections = [
+    { label: "Deep learning paradigms", color: '#C0504D', start: 0, end: 50, url: "../paradigms" },
+    { label: "Multimodal data integration", color: '#8064A2', start: 50, end: 130, url: "../multimodal" },
+    { label: "Trustworthy AI for healthcare", color: '#F79646', start: 130, end: 180, url: "../trustAI" },
+    { label: "Computational microscopy", color: '#9BBB59', start: 180, end: 230, url: "../c_micro" },
+    { label: "Computational histopathology", color: '#5A9BD3', start: 230, end: 310, url: "../c_hist" },
+    { label: "Computational neuroscience", color: '#4BACC6', start: 310, end: 360, url: "../c_neru" },
+  ];
+  
+  setInterval(function() {
+    mouseMoved();
+  }, 100);
+
+}
+
+function draw() {
+  clear(); 
+translate(0, -35);
+  for (let i = 0; i < sections.length; i++) {
+    let isHovered = (i === hoveredIndex); 
+    let scaleFactor = isHovered ? 1.2 : 1.0;
+    let adjustedR2x = r2x * scaleFactor;
+    let adjustedR2y = r2y * scaleFactor;
+    textSize(17 * scaleFactor); 
+    fill(sections[i].color);
+    arc(cx, cy, adjustedR2x * 2, adjustedR2y * 2, sections[i].start, sections[i].end, PIE);
+    fill(0);
+    let angle = (sections[i].start + sections[i].end) / 2;
+    let x = cx + adjustedR2x * 0.7 * cos(angle);
+    let y = cy + adjustedR2y * 0.7 * sin(angle);
+    text(sections[i].label, x, y);
+  }
+
+  // 绘制中心的椭圆
+  fill('#4472C4'); // 专业的深蓝色
+  ellipse(cx, cy, r1x * 2, r1y * 2);
+  fill(255);
+  textSize(20);
+  text("AI4Health", cx, cy);
+}
+
+function mouseMoved() {
+ updateHoveredSection();
+}
+
+function mousePressed() {
+  if (hoveredIndex !== -1) {
+    window.open(sections[hoveredIndex].url);
+    
+  }
+
+}
+
+function updateHoveredSection(){
+  
+  let dx = mouseX - cx;
+  let dy = mouseY - cy;
+
+  // 计算相对中心的角度（以度为单位）
+  let angle = atan2(dy, dx); // 弧度转度
+  if (angle < 0) angle += 360;
+
+  // 归一化鼠标位置距离（用于椭圆）
+  let factor_inner = sqrt((dx * dx) / (r2x * r2x) + (dy * dy) / (r2y * r2y));
+  
+  let factor_outer = sqrt((dx * dx) / (r1x * r1x) + (dy * dy) / (r1y * r1y));
+
+  hoveredIndex = -1; // 默认没有悬停在任何部分
+
+  // 如果鼠标在外椭圆内且不在内椭圆内，检查悬停部分
+  if (factor_inner <= 1 && factor_outer >1) {
+    for (let i = 0; i < sections.length; i++) {
+      if (angle >= sections[i].start && angle < sections[i].end) {
+        hoveredIndex = i; // 更新悬停索引
+        break;
+      }
+    }
+  }
+} 
+
+function windowResized() {
+  w_width = windowWidth>1000 ? 1000 : windowWidth*0.8;
+  w_height = windowHeight>600 ? 600 : windowHeight*0.8;
+
+  resizeCanvas(w_width, w_height); // 调整画布大小
+  //centerCanvas();
+  updateCenterAndRadii(); // 更新中心点和半径
+  
+}
+
+function centerCanvas() {
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  canvas.position(x, y);
+}
+
+function updateCenterAndRadii() {
+  cx = width / 2;
+  cy = height / 2;
+  r1x = width * 0.15; // 根据页面宽度动态设置内椭圆的x轴半径
+  r1y = height * 0.1; // 根据页面高度动态设置内椭圆的y轴半径
+  r2x = width * 0.35; // 根据页面宽度动态设置外椭圆的x轴半径
+  r2y = height * 0.3; // 根据页面高度动态设置外椭圆的y轴半径
+}
+
+</script>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+		    
+          <li>
+            <a href="mailto:yanming.zhu@griffith.edu.au" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+        
+<!--        -->
+<!--          -->
+
+<!--		  -->
+<!--      -->
+<!--		  -->
+        </ul>
+        <p class="copyright text-muted">
+		  AI4Health
+		  &nbsp;&bull;&nbsp;
+		  2024
+	    </p>
+<!--		<p class="theme-by text-muted">-->
+<!--		  Theme by-->
+<!--		  <a href="http://deanattali.com/">Dean Attali</a>-->
+<!--		</p>-->
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+<!--    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-83713279-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+-->
+  
+  </body>
+</html>
