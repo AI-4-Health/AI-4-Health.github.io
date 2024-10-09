@@ -44,13 +44,15 @@ student-list-1:
 #    website: https://scholar.google.com/citations?user=hysM12MAAAAJ&hl=en
     email: gmuhammadasif.hasan@griffithuni.edu.au
   
+
+    
+student-list-2:        
   - name: Adam Wang
     img: /img/people/adam.png
     desc: 08/2024
 #    website: https://scholar.google.com/citations?user=hysM12MAAAAJ&hl=en
     email: adam.wang@griffithuni.edu.au
     
-student-list-2:        
   - name: Xiang Gao
     img: /img/people/xiangpng.png
     desc: 09/2024
