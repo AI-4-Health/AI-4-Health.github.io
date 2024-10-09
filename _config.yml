@@ -1,6 +1,6 @@
 # url is the full website URL
 # baseurl is the website's URL without the hostname
-url: "http://AI4HealthLab.github.io"
+url: "http://AI-4-Health.github.io"
 baseurl: ""
 
 title: AI4Health
@@ -27,7 +27,7 @@ navbar-links:
 author:
   name: "AI4Health"
   email: "yanming.zhu@griffith.edu.au"
-  github: AI4HealthLab/AI4HealthLab.github.io
+  github: AI-4-Health/AI-4-Health.github.io
 
 # Select which links to show in the footer
 footer-links-active:
