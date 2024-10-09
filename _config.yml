@@ -10,7 +10,13 @@ description:
 # List of links in the navigation bar
 navbar-links:
   Home: ""
-  Research: "research"
+  Research:
+    - Computational Histopathology: "c_hist"
+    - Computational Neuroscience: "c_neru"
+    - Computational Microscopy: "c_micro"
+    - Multimodal Data Integration: "c_multimodal"
+    - Deep Learning Paradigms: "c_paradigms"
+    - Trustworthy AI for Healthcare: "c_trustAI"
   Project: "funding"
   People: "peoplenew"
   Publication: "publication"
