@@ -55,7 +55,8 @@ share-links-active:
 #disqus: "reconhub-github-io"
 
 # Google Analytics ID
-google_analytics: "UA-83713279-1"
+google_analytics:
+ #"UA-83713279-1"
 
 # Output options (more information on Jekyll's site)
 timezone: "Australia/Brisbane"
