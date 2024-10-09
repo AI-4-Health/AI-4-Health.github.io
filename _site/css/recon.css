@@ -17,3 +17,7 @@ page-heading {
   padding-right: 80px;
   padding-left: 80px;
 }
+
+h1{
+display: none;
+}
