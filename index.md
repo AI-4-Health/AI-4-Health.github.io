@@ -82,7 +82,7 @@ let y = cy + adjustedR2y * 0.7 * sin(angle);
 text(sections[i].label, x, y);
 }
 
-/background(255);
+//background(255);
   fill('#4472C4');
   ellipse(cx, cy, r1x * 2, r1y * 2);
 
