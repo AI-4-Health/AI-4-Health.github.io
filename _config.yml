@@ -4,7 +4,7 @@ url: "http://AI-4-Health.github.io"
 baseurl: ""
 
 title: AI4Health
-#title-img: "/img/404-people.png"
+title-img: "img/logo.png"
 description:
 
 # List of links in the navigation bar
@@ -24,7 +24,7 @@ navbar-links:
   Join Us: "join"
   Contact: "contact"
 
-#avatar: "/img/logo.png"
+#avatar: "img/logo.png"
 #round-avatar: true
 
 
