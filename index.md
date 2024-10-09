@@ -85,7 +85,7 @@ text(sections[i].label, x, y);
 //background(255);
   fill('#4472C4');
   ellipse(cx, cy, r1x * 2, r1y * 2);
-
+  fill(255);
   // 计算椭圆尺寸的80%
   let newWidth = r1x * 2 * 0.8;
   let newHeight = r1y * 2 * 0.8;
