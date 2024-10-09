@@ -82,14 +82,34 @@ let y = cy + adjustedR2y * 0.7 * sin(angle);
 text(sections[i].label, x, y);
 }
 
-// 绘制中心的椭圆
-fill('#4472C4'); // 专业的深蓝色
-ellipse(cx, cy, r1x * 2, r1y * 2);
-fill(255);
-imageMode(CENTER);
-img.resize(r1x * 2*0.8, r1y * 2*0.8);
+/background(255);
+  fill('#4472C4');
+  ellipse(cx, cy, r1x * 2, r1y * 2);
 
-image(img, cx, cy);
+  // 计算椭圆尺寸的80%
+  let newWidth = r1x * 2 * 0.8;
+  let newHeight = r1y * 2 * 0.8;
+
+  // 调整图像大小以保持原始宽高比例，并匹配椭圆的80%大小
+  let imgAspectRatio = img.width / img.height;
+  let targetWidth, targetHeight;
+  if (imgAspectRatio > (newWidth / newHeight)) {
+    // 图像的宽高比大于目标宽高比，以宽度为基准进行缩放
+    targetWidth = newWidth;
+    targetHeight = newWidth / imgAspectRatio;
+  } else {
+    // 图像的宽高比小于或等于目标宽高比，以高度为基准进行缩放
+    targetWidth = newHeight * imgAspectRatio;
+    targetHeight = newHeight;
+  }
+
+  // 在绘制图像前调整图像大小
+  img.resize(targetWidth, targetHeight);
+  
+  // 绘制图像
+  imageMode(CENTER);
+  image(img, cx, cy);
+
 //textSize(20);
 //text("AI4Health", cx, cy);
 }
