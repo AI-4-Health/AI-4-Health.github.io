@@ -4,7 +4,7 @@ url: "http://AI-4-Health.github.io"
 baseurl: ""
 
 title: AI4Health
-title-img: "img/logo.png"
+title-img: "/img/logo.png"
 description:
 
 # List of links in the navigation bar
